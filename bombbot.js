@@ -4,7 +4,7 @@ var _ = require('lodash');
 var kwfilter = require('keyword-filter');
 
 var filter = new kwfilter();
-var searchTerms = ['crap', 'fuck', 'deploy', 'fix', 'haha', 'shit'];
+var searchTerms = ['crap', 'fuck', 'deploy', 'fix', 'haha', 'shit', 'nice'];
 filter.init(searchTerms);
 
 var findGiphy = function(searchTerm) {
