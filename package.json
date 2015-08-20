@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "express": "~4.13.3",
-    "body-parser": "~1.13.3"
+    "body-parser": "~1.13.3",
+    "giphy-wrapper": "0.0.1",
+    "bluebird": "~2.9.34"
   }
 }
