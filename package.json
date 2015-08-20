@@ -1,0 +1,26 @@
+{
+  "name": "slackMonitor",
+  "version": "0.0.0",
+  "description": "A really shitty word monitor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rasharab/slackMonitor.git"
+  },
+  "keywords": [
+    "slack",
+    "monitor"
+  ],
+  "author": "rasharab",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/rasharab/slackMonitor/issues"
+  },
+  "dependencies": {
+    "express": "~4.13.3",
+    "body-parser": "~1.13.3"
+  }
+}
