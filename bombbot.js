@@ -1,5 +1,11 @@
 var Promise = require('bluebird');
 var giphy = require('giphy-wrapper')('dc6zaTOxFJmzC');
+var _ = require('lodash');
+var kwfilter = require('keyword-filter');
+
+var filter = new kwfilter();
+var searchTerms = ['crap', 'fuck', 'deploy', 'fixed'];
+filter.init(searchTerms);
 
 var findGiphy = function(searchTerm) {
  var offset = Math.floor(Math.random()* 1000)
@@ -12,8 +18,7 @@ var findGiphy = function(searchTerm) {
 		 
 		    var gifs = data.data;
 		    var gif = gifs[Math.floor(Math.random()*gifs.length)];
-		    console.log(gif);		    
- 			return resolve(gif.url);
+ 		    return resolve(gif.url);
 		  });
 	});
 };
@@ -21,7 +26,7 @@ var findGiphy = function(searchTerm) {
 module.exports = function (req, res, next) {
   var userName = req.body.user_name;
   // avoid infinite loop
-  if (userName !== 'slackbot' && req.body.text.indexOf('crap') > -1) {
+  if (userName !== 'slackbot' && filter.hasKeyword(req.body.text)) {
     return findGiphy('awesome')
 	.then(function(gif) {
 		  var botPayload = {
@@ -29,7 +34,6 @@ module.exports = function (req, res, next) {
                     icon_emoji: ":wink:"
 		  };
 
-		  console.log("Got gif: " + gif);
 		  return res.status(200).json(botPayload);
 	});
   } else {
