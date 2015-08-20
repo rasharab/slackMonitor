@@ -8,7 +8,7 @@ var searchTerms = ['crap', 'fuck', 'deploy', 'fixed'];
 filter.init(searchTerms);
 
 var findGiphy = function(searchTerm) {
- var offset = Math.floor(Math.random()* 1000)
+ var offset = Math.floor(Math.random()* 10000)
  return new Promise(function(resolve, reject) {
 		 giphy.search(searchTerm, 25, offset, function (err, data) {
 		    if (err) {
